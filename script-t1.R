@@ -38,3 +38,29 @@ summary(modeloAjustado)
 #FAÇO UM PLOT DO GRÁFICO COM A LINHA DE MÍNIMOS QUADRADOS
 plot(taxs[0:50], price[0:50], main = "Taxs X Price", xlab = "TAXS", ylab = "PRICE")
 abline(lm(price[0:50]~taxs[0:50]))
+
+#REMOVENDO PONTO DISCREPANTE
+priceAjustado <- price[0:48]
+priceAjustado <- c(priceAjustado, price[50])
+taxsAjustado <- taxs[0:48]
+taxsAjustado <- c(taxsAjustado, taxs[50])
+
+#ANALISO A CORRELAÇÃO DAS VARIÁVEIS TAXS E PRICE
+cor(taxsAjustado, priceAjustado)
+
+#USO O PLOT PARA COLOCAR NO GRÁFICO E FAZER A ANÁLISE VISUAL
+plot(taxsAjustado, priceAjustado, main = "Taxs X Price Adjusted", xlab = "TAXS", ylab = "PRICE")
+
+#FAÇO O TESTE DE ASSOCIAÇÃO/CORREÇÃO ENTRE AS VARIÁVEIS
+cor.test(taxsAjustado, priceAjustado)
+
+#AJUSTO O MODELO E COLOCO NO OBJETO O MODELO AJUSTADO
+modeloAjustado2 <- lm(priceAjustado~taxsAjustado)
+modeloAjustado2
+
+#GERO O RESUMO DO OBJETO
+summary(modeloAjustado2)
+
+#FAÇO UM PLOT DO GRÁFICO COM A LINHA DE MÍNIMOS QUADRADOS
+plot(taxsAjustado, priceAjustado, main = "Taxs X Price", xlab = "TAXS", ylab = "PRICE")
+abline(lm(priceAjustado~taxsAjustado))
