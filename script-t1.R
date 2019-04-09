@@ -23,12 +23,12 @@ attach(cigarettesTable)
 cor(taxs[0:50], price[0:50])
 
 #USO O PLOT PARA COLOCAR NO GRÁFICO E FAZER A ANÁLISE VISUAL
-plot(taxs[0:50], price[0:50], main = "Taxes X Price", xlab = "TAXS", ylab = "PRICE")
+plot(taxs[0:50], price[0:50], main = "Taxs X Price", xlab = "TAXS", ylab = "PRICE")
 
 #FAÇO O TESTE DE ASSOCIAÇÃO/CORREÇÃO ENTRE AS VARIÁVEIS
 cor.test(taxs[0:50], price[0:50])
 
-#AJUSTO O MODELO E COLOCO NO OBJETO MODELO AJUSTADO
+#AJUSTO O MODELO E COLOCO NO OBJETO O MODELO AJUSTADO
 modeloAjustado <- lm(price[0:50]~taxs[0:50])
 modeloAjustado
 
@@ -36,5 +36,5 @@ modeloAjustado
 summary(modeloAjustado)
 
 #FAÇO UM PLOT DO GRÁFICO COM A LINHA DE MÍNIMOS QUADRADOS
-plot(taxs[0:50], price[0:50], main = "Taxes X Price", xlab = "TAXS", ylab = "PRICE")
+plot(taxs[0:50], price[0:50], main = "Taxs X Price", xlab = "TAXS", ylab = "PRICE")
 abline(lm(price[0:50]~taxs[0:50]))
